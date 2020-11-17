@@ -1,0 +1,26 @@
+﻿@model EvaluationViewModel
+@using Microsoft.AspNetCore.Http
+
+<h1>Evaluation</h1>
+<br />
+Aufrufe: @Model.ViewCount
+<br />
+Spieler 1: @Model.Player1Guess
+<br />
+Spieler 2: @Model.Player2Guess
+<br />
+@Model.WinnerMessage
+<br />
+Aktueller Punktestand:
+<br />
+<table cellpadding="10">
+    <tr>
+        <td align="center">Spieler 1</td>
+        <td align="center">Spieler 2</td>
+    </tr>
+    <tr>
+        <td align="center"><bold>@Context.Session.GetInt32("player1Score")</bold></td>
+        <td align="center"><bold>@Context.Session.GetInt32("player2Score")</bold></td>
+    </tr>
+</table>
+<a href="Home"><input type="button" value="nächste Runde" /></a>
