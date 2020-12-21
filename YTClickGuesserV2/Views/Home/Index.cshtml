@@ -1,27 +1,19 @@
-﻿@model YTClickGuesserV2.Models.VideoViewModel
-@using Microsoft.AspNetCore.Http
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/@Model.VideoId" frameborder="0" allowfullscreen></iframe>
+﻿<h1 align="center">Willkommen bei ClickGuesser</h1>
 <br />
 <br />
-<form action="Evaluation" method="post">
-    <table>
-        <tr>
-            <td align="center">Player 1: @Html.TextBoxFor(m => m.Player1Guess)</td>
-            <td align="center">Player 2: @Html.TextBoxFor(m => m.Player2Guess)</tdalign="center">
-        </tr>
-        <tr>
-            <td align="center">Player 1</td>
-            <td align="center">Player 2</td>
-        </tr>
-        <tr>
-            <td align="center"><bold>@Context.Session.GetInt32("player1Score")</bold></td>
-            <td align="center"><bold>@Context.Session.GetInt32("player2Score")</bold></td>
-        </tr>
-    </table>
-
-    @Html.HiddenFor(m => m.VideoId)
+<p>Wählen Sie die gewünschte Anzahl an Runden aus!</p>
+<br />
+<form method="post" action="">
+    <input type="radio" name="runden" value="1" /> 1
     <br />
-    <input type="submit" value="send" />
+    <input type="radio" name="runden" value="5" /> 5
+    <br />
+    <input type="radio" name="runden" value="10" /> 10
+    <br />
+    <input type="radio" name="runden" value="15" /> 15
+    <br />
+    <input type="radio" name="runden" value="20" /> 20
+    <br />
+    <input type="submit" value="Start" />
 </form>
 

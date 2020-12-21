@@ -34,6 +34,7 @@ namespace YTClickGuesserV2.Controllers
             int? player2Score = HttpContext.Session.GetInt32("player2Score");
 
 
+            HttpContext.Session.SetInt32("rundengespielt", (int)HttpContext.Session.GetInt32("rundengespielt") + 1);
 
             string winnerMessage = "";
 
@@ -50,11 +51,18 @@ namespace YTClickGuesserV2.Controllers
                 HttpContext.Session.SetInt32("player2Score", (int)player2Score++);
             }
 
+            string redirect = "Game";
+            if (HttpContext.Session.GetInt32("rundengespielt") >= HttpContext.Session.GetInt32("rundengesamt"))
+            {
+                redirect = "Result";
+            }
+
             return View(new EvaluationViewModel{
                 Player1Guess = model.Player1Guess,
                 Player2Guess = model.Player2Guess,
                 ViewCount = viewCount,
-                WinnerMessage = winnerMessage  
+                WinnerMessage = winnerMessage,
+                Redirect = redirect
             });
         }
     }

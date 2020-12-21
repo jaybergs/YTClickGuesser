@@ -1,0 +1,33 @@
+﻿@model YTClickGuesserV2.Models.VideoViewModel
+@using Microsoft.AspNetCore.Http
+
+<div class="mx-auto">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/@Model.VideoId" frameborder="0" allowfullscreen></iframe>
+</div>
+<br />
+<br />
+<div class="mx-auto">
+    <form action="Evaluation" method="post">
+        <table>
+            <tr>
+                <td align="center">Player 1: @Html.TextBoxFor(m => m.Player1Guess)</td>
+                <td align="center">Player 2: @Html.TextBoxFor(m => m.Player2Guess)</td>
+            </tr>
+            <tr>
+                <td align="center">Player 1</td>
+                <td align="center">Player 2</td>
+            </tr>
+            <tr>
+                <td align="center"><bold>@Context.Session.GetInt32("player1Score")</bold></td>
+                <td align="center"><bold>@Context.Session.GetInt32("player2Score")</bold></td>
+            </tr>
+        </table>
+
+        <h1 align="center">Runde @Context.Session.GetInt32("rundengespielt")</h1>
+        @Html.HiddenFor(m => m.VideoId)
+        <br />
+        <input type="submit" value="send" /> 
+        <br />
+        Probleme mit dem Video? <a href="Game"><input type="button" value="Runde wiederholen" /></a>
+    </form>
+</div>

@@ -11,5 +11,6 @@ namespace YTClickGuesserV2.Models
         public int Player1Guess { get; set; }
         public int Player2Guess { get; set; }
         public string WinnerMessage { get; set; }
+        public string Redirect { get; set; }
     }
 }

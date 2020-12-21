@@ -1,0 +1,12 @@
+﻿@using Microsoft.AspNetCore.Http
+@model YTClickGuesserV2.Models.ResultViewModel
+
+<div align="center">
+    <h1>Endstand</h1>
+    <br />
+    <h1>@Context.Session.GetInt32("player1Score") : @Context.Session.GetInt32("player2Score")</h1>
+    <br />
+    Gewonnen hat @Model.Winner!
+    <br />
+    <a href="Home"><input type="button" value="Zurück zum Menü"/></a>
+</div>
